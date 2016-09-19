@@ -1,0 +1,28 @@
+{
+  "name": "qrcode-bot",
+  "version": "0.0.3",
+  "description": "Artistic QR code generator bot",
+  "main": "bot.js",
+  "scripts": {
+    "transpile": "babel --presets es2015 --plugins add-module-exports,transform-regenerator,transform-object-rest-spread,transform-es2015-destructuring src --out-dir .",
+    "create": "npm run transpile && claudia create --name qrcode-bot --region us-east-1 --api-module bot --policies policies --timeout 300 --cache-api-config qrcodebotCache --configure-fb-bot --profile qrcode-bot",
+    "deploy": "npm run transpile && claudia update --cache-api-config qrcodebotCache --profile qrcode-bot",
+    "update-qrcode": "cd qrcode && zip -g qrcode.zip qrcode.py"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.5.5",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-polyfill": "^6.13.0",
+    "claudia-bot-builder": "^1.4.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-regenerator": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0"
+  }
+}

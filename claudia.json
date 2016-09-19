@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "qrcode-bot-executor",
+    "name": "qrcode-bot",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "73ez6ejgm8",
+    "module": "bot"
+  }
+}
